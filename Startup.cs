@@ -11,8 +11,6 @@ using Microsoft.Extensions.Hosting;
 
 using MvcMovie.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
-using Microsoft.AspNetCore.Localization;
 
 
 namespace MvcMovie
@@ -63,15 +61,6 @@ namespace MvcMovie
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
-            var defaultCulture = new CultureInfo("de");
-            var localizationOptions = new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture(defaultCulture),
-                SupportedCultures = new List<CultureInfo> { defaultCulture },
-                SupportedUICultures = new List<CultureInfo> { defaultCulture }
-            };
-            app.UseRequestLocalization(localizationOptions);
 
             app.UseHttpsRedirection();
 
